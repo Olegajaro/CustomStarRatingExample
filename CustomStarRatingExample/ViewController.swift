@@ -9,8 +9,7 @@ import UIKit
 import Cosmos
 
 class ViewController: UIViewController {
-    
-    
+        
     lazy var cosmosView: CosmosView = {
         var view = CosmosView()
 //        view.settings.updateOnTouch = false
@@ -35,6 +34,8 @@ class ViewController: UIViewController {
     
     var ratingLabel = UILabel()
     
+    var userDefaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +49,7 @@ extension  ViewController {
     private func style() {
         view.backgroundColor = .white
         cosmosView.translatesAutoresizingMaskIntoConstraints = false
+        cosmosView.rating = userDefaults.double(forKey: "key")
         
         ratingLabel.translatesAutoresizingMaskIntoConstraints = false
         ratingLabel.font = UIFont.preferredFont(forTextStyle: .title1)
@@ -69,7 +71,10 @@ extension  ViewController {
     
     private func test()  {
         cosmosView.didFinishTouchingCosmos = { rating in
+                        
+            self.userDefaults.set(rating, forKey: "key")
             self.ratingLabel.text = "Rating: \(String(format: "%.2f", rating))"
+            self.cosmosView.rating = self.userDefaults.double(forKey: "key")
         }
     }
 }

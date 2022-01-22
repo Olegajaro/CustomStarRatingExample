@@ -11,6 +11,7 @@
 		10E8F1ED279C33440055D987 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E8F1EC279C33440055D987 /* ViewController.swift */; };
 		10E8F1F2279C33450055D987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10E8F1F1279C33450055D987 /* Assets.xcassets */; };
 		10E8F1F5279C33450055D987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E8F1F3279C33450055D987 /* LaunchScreen.storyboard */; };
+		10E8F1FD279C43B10055D987 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E8F1FC279C43B10055D987 /* StorageManager.swift */; };
 		32B5FA1144D7DE451E8ECF32 /* Pods_CustomStarRatingExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9844B4E6804F5CD8EFBE07 /* Pods_CustomStarRatingExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,7 @@
 		10E8F1F1279C33450055D987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10E8F1F4279C33450055D987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10E8F1F6279C33450055D987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10E8F1FC279C43B10055D987 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2BCD9FE2757397544981D566 /* Pods-CustomStarRatingExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomStarRatingExample.release.xcconfig"; path = "Target Support Files/Pods-CustomStarRatingExample/Pods-CustomStarRatingExample.release.xcconfig"; sourceTree = "<group>"; };
 		2F1A0E2B434E070AAA526018 /* Pods-CustomStarRatingExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomStarRatingExample.debug.xcconfig"; path = "Target Support Files/Pods-CustomStarRatingExample/Pods-CustomStarRatingExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8C9844B4E6804F5CD8EFBE07 /* Pods_CustomStarRatingExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomStarRatingExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,11 +63,20 @@
 			children = (
 				10E8F1E8279C33440055D987 /* AppDelegate.swift */,
 				10E8F1EC279C33440055D987 /* ViewController.swift */,
+				10E8F1FC279C43B10055D987 /* StorageManager.swift */,
+				10E8F1FE279C43BB0055D987 /* Files */,
+			);
+			path = CustomStarRatingExample;
+			sourceTree = "<group>";
+		};
+		10E8F1FE279C43BB0055D987 /* Files */ = {
+			isa = PBXGroup;
+			children = (
 				10E8F1F1279C33450055D987 /* Assets.xcassets */,
 				10E8F1F3279C33450055D987 /* LaunchScreen.storyboard */,
 				10E8F1F6279C33450055D987 /* Info.plist */,
 			);
-			path = CustomStarRatingExample;
+			path = Files;
 			sourceTree = "<group>";
 		};
 		83C4139BCB8B9F4D0278A18D /* Frameworks */ = {
@@ -82,7 +93,6 @@
 				2F1A0E2B434E070AAA526018 /* Pods-CustomStarRatingExample.debug.xcconfig */,
 				2BCD9FE2757397544981D566 /* Pods-CustomStarRatingExample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -200,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E8F1FD279C43B10055D987 /* StorageManager.swift in Sources */,
 				10E8F1ED279C33440055D987 /* ViewController.swift in Sources */,
 				10E8F1E9279C33440055D987 /* AppDelegate.swift in Sources */,
 			);
@@ -344,7 +355,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CustomStarRatingExample/Info.plist;
+				INFOPLIST_FILE = CustomStarRatingExample/Files/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -371,7 +382,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CustomStarRatingExample/Info.plist;
+				INFOPLIST_FILE = CustomStarRatingExample/Files/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
