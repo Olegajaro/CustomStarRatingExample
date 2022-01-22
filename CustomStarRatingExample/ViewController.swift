@@ -6,39 +6,70 @@
 //
 
 import UIKit
+import Cosmos
 
 class ViewController: UIViewController {
     
-    let stackView = UIStackView()
-    let label = UILabel()
+    
+    lazy var cosmosView: CosmosView = {
+        var view = CosmosView()
+//        view.settings.updateOnTouch = false
+        view.settings.filledImage = UIImage(
+            named: "RatingStarFilled"
+        )?.withRenderingMode(.alwaysOriginal)
+        view.settings.emptyImage = UIImage(
+            named: "RatingStarEmpty"
+        )?.withRenderingMode(.alwaysOriginal)
+        
+        view.settings.totalStars = 10
+        view.settings.starSize = 20
+        view.settings.starMargin = 4
+        view.settings.fillMode = .precise
+        
+        view.text = "Rate me"
+        view.settings.textColor = .red
+        view.settings.textMargin = 10
+        
+        return view
+    }()
+    
+    var ratingLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         style()
         layout()
+        test()
     }
 }
 
 extension  ViewController {
     private func style() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 20
+        view.backgroundColor = .white
+        cosmosView.translatesAutoresizingMaskIntoConstraints = false
         
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Welcome"
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+        ratingLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        ratingLabel.text = "Rating: \(String(format: "%.2f", cosmosView.rating))"
     }
     
     private func layout() {
-        stackView.addArrangedSubview(label)
+        view.addSubview(cosmosView)
+        view.addSubview(ratingLabel)
         
-        view.addSubview(stackView)
+        cosmosView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        cosmosView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+        ratingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        ratingLabel.topAnchor.constraint(
+            equalTo: cosmosView.bottomAnchor, constant: 30
+        ).isActive = true
+    }
+    
+    private func test()  {
+        cosmosView.didFinishTouchingCosmos = { rating in
+            self.ratingLabel.text = "Rating: \(String(format: "%.2f", rating))"
+        }
     }
 }
