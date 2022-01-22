@@ -49,7 +49,7 @@ extension  ViewController {
     private func style() {
         view.backgroundColor = .white
         cosmosView.translatesAutoresizingMaskIntoConstraints = false
-        cosmosView.rating = userDefaults.double(forKey: "key")
+        cosmosView.rating = StorageManager.rating
         
         ratingLabel.translatesAutoresizingMaskIntoConstraints = false
         ratingLabel.font = UIFont.preferredFont(forTextStyle: .title1)
@@ -71,10 +71,10 @@ extension  ViewController {
     
     private func test()  {
         cosmosView.didFinishTouchingCosmos = { rating in
-                        
-            self.userDefaults.set(rating, forKey: "key")
+            
+            StorageManager.rating = rating
             self.ratingLabel.text = "Rating: \(String(format: "%.2f", rating))"
-            self.cosmosView.rating = self.userDefaults.double(forKey: "key")
+            self.cosmosView.rating = StorageManager.rating
         }
     }
 }
